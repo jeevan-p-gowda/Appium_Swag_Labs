@@ -4,8 +4,6 @@ import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Listeners;
-import utility.AllureListener;
 import utility.IConstantPath;
 import utility.PropertyLoader;
 import utility.ReadConfigKeys;
@@ -17,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 //@Listeners({AllureListener.class})
 public class BaseClass extends BaseClassVariables {
     @BeforeClass
-    public void setUp() throws InterruptedException, IOException {
+    public void setUp() throws IOException {
         tdriver = new ThreadLocal<AndroidDriver>();
         propertyLoader=new PropertyLoader();
         propertyLoader.loadPropertyFile(IConstantPath.CONFIG_PROPERTY_FILE);
@@ -32,7 +30,6 @@ public class BaseClass extends BaseClassVariables {
 //        tdriver.get();
         assertion=new Assertion();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        Thread.sleep(2000);
     }
 
     public static synchronized AndroidDriver getDriver() {
@@ -40,8 +37,7 @@ public class BaseClass extends BaseClassVariables {
     }
 
     @AfterClass
-    public void tearDown() throws InterruptedException {
-        Thread.sleep(1000);
+    public void tearDown() {
         driver.quit();
     }
 }

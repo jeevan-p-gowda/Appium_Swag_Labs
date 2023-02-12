@@ -1,1 +1,0 @@
-{"uuid":"c4cb36fc-4c46-4595-ae0d-0af2b6757556","name":"Appium_Swag_Labs","children":["5200dbd5-acf2-46c3-874d-343e8db8d29f"],"befores":[{"name":"beforeTest","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1675700009216,"stop":1675700009316}],"afters":[],"start":1675700009184,"stop":1675700020323}

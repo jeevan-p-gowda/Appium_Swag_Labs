@@ -18,9 +18,8 @@ public class Assertion {
         boolean selectedStatus = webElement.isSelected();
         Assert.assertEquals(selectedStatus, true);
     }
-    public void assertMessage(WebElement webElement, String expectedMessage) {
-        String actualMessage = webElement.getText();
-        boolean isShown = actualMessage.equalsIgnoreCase(actualMessage);
+    public void assertMessage(WebElement element, String expectedMessage) {
+        boolean isShown = element.getText().contains(expectedMessage);
         Assert.assertEquals(isShown, true);
     }
 }

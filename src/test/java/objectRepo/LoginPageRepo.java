@@ -20,8 +20,19 @@ public class LoginPageRepo {
     @FindBy(className = "android.widget.TextView")
     private WebElement productDashboardImage;
 
+    @FindBy(xpath="//android.view.ViewGroup[@content-desc='standard_user']/android.widget.TextView")
+    private WebElement standardUserCred;
+
+    @FindBy(xpath="//android.view.ViewGroup[@content-desc='test-problem_user']/android.widget.TextView")
+    private WebElement problemUserCred;
+
+    @FindBy(xpath="//android.view.ViewGroup[@content-desc='test-locked_out_user']/android.widget.TextView")
+    private WebElement lockedOutUserCred;
+
+    @FindBy(xpath="//android.view.ViewGroup[@content-desc='test-Error message']/android.widget.TextView")
+    private WebElement errorMessage;
+
     public LoginPageRepo(AndroidDriver driver) {
-//        this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
@@ -40,10 +51,18 @@ public class LoginPageRepo {
     public WebElement getProductDashboardImage() {
         return productDashboardImage;
     }
+    public WebElement getErrorMessage() {
+        return errorMessage;
+    }
+    public String standardUserCred(){
+        return standardUserCred.getText().trim();
+    }
+    public String problemUserCred(){
+        return standardUserCred.getText().trim();
+    }
 
     public void loginToApp(String userName, String password) {
         userNameTextBox().sendKeys(userName);
         passwordTextBox().sendKeys(password);
     }
 }
-

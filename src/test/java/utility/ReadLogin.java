@@ -1,15 +1,15 @@
 package utility;
 
 public enum ReadLogin {
-    STANDAR_USER("standardUser"), PASSWORD("password");
+    STANDARD_USER("standardUser"), PASSWORD("password");
 
-    private String keys;
+    private String key;
 
-    ReadLogin(String keys) {
-        this.keys = keys;
+    ReadLogin(String key) {
+        this.key = key;
     }
 
     public String convertToString() {
-        return keys.toString();
+        return key.toString();
     }
 }
